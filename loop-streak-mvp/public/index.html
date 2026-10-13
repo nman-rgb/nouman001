@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Loop</title>
+  <meta name="description" content="Share TikToks with your friend and keep the streak alive.">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Loop">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Login -->
+  <main id="login" class="screen login" hidden>
+    <div class="login-card">
+      <div class="logo-flame" aria-hidden="true">🔥</div>
+      <h1 class="wordmark">Loop</h1>
+      <p class="muted">Send a TikTok every day. Keep the flame alive.</p>
+      <form id="login-form" autocomplete="off">
+        <label for="token-input" class="label">Your access token</label>
+        <input id="token-input" class="input" type="password" inputmode="text" autocapitalize="off"
+               autocorrect="off" spellcheck="false" placeholder="Paste the token you were given" required>
+        <button class="btn btn-primary btn-block" type="submit">Continue</button>
+        <p id="login-error" class="error" role="alert" hidden></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- App -->
+  <main id="app" class="screen" hidden>
+    <header class="topbar">
+      <div>
+        <span class="wordmark small">Loop</span>
+        <span id="with-friend" class="muted with"></span>
+      </div>
+      <button id="menu-btn" class="icon-btn" type="button" aria-label="Menu" aria-haspopup="true" aria-expanded="false">⋯</button>
+      <div id="menu" class="menu" hidden>
+        <button id="refresh-btn" type="button">Refresh</button>
+        <button id="logout-btn" type="button">Log out</button>
+      </div>
+    </header>
+
+    <div id="install-hint" class="banner" hidden>
+      <span>Install Loop: tap <strong>Share</strong> <span aria-hidden="true">⎋</span> then <strong>Add to Home Screen</strong>.</span>
+      <button id="install-dismiss" class="icon-btn" type="button" aria-label="Dismiss">✕</button>
+    </div>
+
+    <section class="streak-card" aria-live="polite">
+      <div class="flame-wrap">
+        <div id="flame" class="flame" aria-hidden="true">🔥</div>
+        <div class="streak-num"><span id="streak-count">0</span><small>day streak</small></div>
+      </div>
+      <div class="today">
+        <div id="me-status" class="pill"></div>
+        <div id="friend-status" class="pill"></div>
+      </div>
+      <p id="streak-note" class="streak-note"></p>
+      <p id="best-streak" class="muted tiny"></p>
+    </section>
+
+    <section class="composer">
+      <form id="share-form" autocomplete="off">
+        <div class="input-row">
+          <input id="url-input" class="input" type="text" inputmode="url" placeholder="Paste a TikTok link"
+                 autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="TikTok link">
+          <button id="paste-btn" class="btn btn-ghost" type="button">Paste</button>
+        </div>
+        <input id="note-input" class="input" type="text" maxlength="140" placeholder="Add a note (optional)" aria-label="Note">
+        <button id="send-btn" class="btn btn-primary btn-block" type="submit">Send TikTok</button>
+      </form>
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-tab="in">Inbox <span id="unread-badge" class="badge" hidden></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="out">Sent</button>
+    </nav>
+
+    <section id="list" class="list" aria-live="polite"></section>
+    <p id="empty" class="empty muted" hidden></p>
+  </main>
+
+  <div id="splash" class="splash"><div class="logo-flame pulse">🔥</div></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "loop-streak-mvp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/backend.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

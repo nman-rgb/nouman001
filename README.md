@@ -17,3 +17,7 @@ Live site: https://nman-rgb.github.io/nouman001/
 2. Under **Build and deployment**, set **Source** to *Deploy from a branch*.
 3. Choose the branch that contains these files and the **/ (root)** folder, then **Save**.
 4. After a minute, the site is live at the URL above.
+
+## Other projects in this repo
+
+- [`loop-streak-mvp/`](loop-streak-mvp/) — Loop 🔥, a private TikTok-sharing streak app (Vercel + Google Apps Script). See its README for setup.
